@@ -25,4 +25,4 @@ replay_pid*
 
 *.iml
 .idea/
-hellocucumber/target/
+adventOfCode/target/
