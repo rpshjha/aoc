@@ -26,3 +26,5 @@ replay_pid*
 *.iml
 .idea/
 adventOfCode/target/
+
+adventOfCode/src/test/.DS_Store
