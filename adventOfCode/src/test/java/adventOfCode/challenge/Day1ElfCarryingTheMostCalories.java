@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class ElfCarryingTheMostCalories {
+public class Day1ElfCarryingTheMostCalories {
 
 
     public static void main(String[] args) throws IOException {
@@ -16,9 +16,9 @@ public class ElfCarryingTheMostCalories {
 
         List<Integer> tempList = new ArrayList<>();
 
-        for (int index = 0; index < ReadCSV.read().size(); index++) {
+        for (int index = 0; index < ReadCSV.readOne().size(); index++) {
 
-            String temp = ReadCSV.read().get(index);
+            String temp = ReadCSV.readOne().get(index);
 
             if (!temp.isEmpty()) {
                 tempList.add(Integer.parseInt(temp));
@@ -27,7 +27,7 @@ public class ElfCarryingTheMostCalories {
                 tempList = new ArrayList<>();
             }
 
-            if (index == ReadCSV.read().size() - 1) {
+            if (index == ReadCSV.readOne().size() - 1) {
                 testData.add(tempList);
             }
 
@@ -60,7 +60,7 @@ public class ElfCarryingTheMostCalories {
             }
         }
 
-        Collections.sort(sum, Collections.reverseOrder());
+        sum.sort(Collections.reverseOrder());
 
         int sumOfMaxThree = sum.get(0) + sum.get(1) + sum.get(2);
         System.out.println("array of sum " + sum);
