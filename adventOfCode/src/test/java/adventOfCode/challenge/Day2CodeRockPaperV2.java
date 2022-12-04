@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.util.Map;
 import java.util.Scanner;
 
-public class Day2CodeRockPaper {
+public class Day2CodeRockPaperV2 {
     public static Map<String, Integer> test = Map.of(
                                             "A X", 3,
                                             "A Y", 4,

@@ -1,16 +1,20 @@
 package adventOfCode.challenge;
 
 import adventOfCode.utils.ReadCSV;
+import adventOfCode.utils.StringUtils;
 
 import java.io.IOException;
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class Day3RuckSackReOrganization {
 
+    static String filename = "testdata3.csv";
+
     public static void main(String[] args) throws IOException {
 
-        List<String> data = ReadCSV.readOne();
+        List<String> data = ReadCSV.read(filename);
 
         int totalPriority = 0;
 
@@ -45,7 +49,7 @@ public class Day3RuckSackReOrganization {
     }
 
     private static int getTotalPriorityFromRucksack(String[] temp) {
-        String chars = findCommon(temp);
+        String chars = StringUtils.findCommonString(temp);
         System.out.println("cha    " + chars);
         String common = String.valueOf(chars);
 
@@ -65,7 +69,7 @@ public class Day3RuckSackReOrganization {
         String first = temp.substring(0, midLen);
         String second = temp.substring(midLen);
 
-        String common = findCommon(first, second);
+        String common = StringUtils.findCommonString(first, second);
 
         int totalPriority = 0;
         for (Character c : common.toCharArray()) {
@@ -76,46 +80,6 @@ public class Day3RuckSackReOrganization {
 
         System.out.println("priority for " + temp + " is " + totalPriority);
         return totalPriority;
-    }
-
-    private static String findCommon(String first, String second) {
-
-        StringBuilder commonChars = new StringBuilder();
-
-        if (first.length() > 0 & second.length() > 0) {
-            // We should iterate the smallest string in length.
-            String toBeIterated = (first.length() > second.length() ? second : first);
-            // Once string to be iterated is finalized, get string to be checked
-            String toBeChecked = toBeIterated.equals(first) ? second : first;
-            System.out.println("String to be iterated: " + toBeIterated);
-            System.out.println("String to be checked: " + toBeChecked);
-
-            // Iterating a string char by char
-            for (int i = 0; i < toBeIterated.length(); i++) {
-                // Check for common char
-                if (toBeChecked.contains(Character.toString(toBeIterated.charAt(i)))) {
-                    // If contains append it to resultant string
-                    commonChars.append(toBeIterated.charAt(i));
-                }
-            }
-
-            System.out.println("common element is " + removeDuplicates(commonChars.toString()));
-            return removeDuplicates(commonChars.toString());
-        } else
-            return "";
-    }
-
-    public static String findCommon(String[] words) {
-
-        if (words == null || words.length == 0)
-            return "";
-
-        Set<Character> unique = words[0].chars().mapToObj(ch -> (char) ch).collect(Collectors.toCollection(TreeSet::new));
-
-        for (String word : words)
-            unique.retainAll(word.chars().mapToObj(ch -> (char) ch).collect(Collectors.toSet()));
-
-        return unique.stream().map(String::valueOf).collect(Collectors.joining());
     }
 
 
@@ -174,18 +138,6 @@ public class Day3RuckSackReOrganization {
         priority.put("Y", 51);
         priority.put("Z", 52);
         return priority.get(character);
-    }
-
-
-    static String removeDuplicates(String str) {
-        LinkedHashSet<Character> set = new LinkedHashSet<>();
-        for (int i = 0; i < str.length(); i++)
-            set.add(str.charAt(i));
-
-        StringBuilder result = new StringBuilder();
-        for (Character ch : set)
-            result.append(ch);
-        return result.toString();
     }
 
 }

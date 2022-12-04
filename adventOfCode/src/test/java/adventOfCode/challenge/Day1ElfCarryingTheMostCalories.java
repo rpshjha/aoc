@@ -12,13 +12,15 @@ public class Day1ElfCarryingTheMostCalories {
 
     public static void main(String[] args) throws IOException {
 
+        String filename = "testdata1.csv";
+
         List<List<Integer>> testData = new ArrayList<>();
 
         List<Integer> tempList = new ArrayList<>();
 
-        for (int index = 0; index < ReadCSV.readOne().size(); index++) {
+        for (int index = 0; index < ReadCSV.read(filename).size(); index++) {
 
-            String temp = ReadCSV.readOne().get(index);
+            String temp = ReadCSV.read(filename).get(index);
 
             if (!temp.isEmpty()) {
                 tempList.add(Integer.parseInt(temp));
@@ -27,7 +29,7 @@ public class Day1ElfCarryingTheMostCalories {
                 tempList = new ArrayList<>();
             }
 
-            if (index == ReadCSV.readOne().size() - 1) {
+            if (index == ReadCSV.read(filename).size() - 1) {
                 testData.add(tempList);
             }
 

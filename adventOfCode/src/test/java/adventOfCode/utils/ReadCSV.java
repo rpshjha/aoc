@@ -6,13 +6,13 @@ import java.util.List;
 
 public class ReadCSV {
 
-    static final String fileName = "./adventOfCode/src/test/resources/testdata3.csv";
+    static final String filePath = "./adventOfCode/src/test/resources/";
 
-    public static List<String> readOne() throws IOException {
+    public static List<String> read(String fileName) throws IOException {
 
         List<String> data = new ArrayList<>();
 
-        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(filePath + fileName))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] values = line.split(",");
@@ -22,11 +22,11 @@ public class ReadCSV {
         return data;
     }
 
-    public static List<String[]> readTwo() throws IOException {
+    public static List<String[]> readAllCoulumn(String fileName) throws IOException {
 
         List<String[]> data = new ArrayList<>();
 
-        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(filePath + fileName))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] values = line.split(",");
@@ -46,7 +46,8 @@ public class ReadCSV {
 //            System.out.println();
 //        }
 
-        List<String> date = readOne();
+        String filename = "testdata2.csv";
+        List<String> date = read(filename);
         System.out.println(date);
     }
 }

@@ -8,6 +8,8 @@ import java.util.List;
 
 public class Day2RockPaperScissor {
 
+    static String filename = "testdata2.csv";
+
 
     public static void main(String[] args) throws IOException {
 
@@ -20,7 +22,7 @@ public class Day2RockPaperScissor {
         map.put("Y", 2);//paper
         map.put("Z", 3);//scissors
 
-        List<String> data = ReadCSV.readOne();
+        List<String> data = ReadCSV.read(filename);
 
         System.out.println("size of data isx " + data.size());
 
