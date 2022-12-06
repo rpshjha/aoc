@@ -12,7 +12,7 @@ public class Day5SupplyStacks {
 
     public static void main(String[] args) throws IOException {
 
-        List<String[]> data = FileReader.readCSVallCoulumn(filename);
+        List<String[]> data = FileReader.readCSVallColumn(filename);
 
         partOne(data);
 

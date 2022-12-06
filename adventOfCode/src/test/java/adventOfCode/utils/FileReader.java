@@ -22,7 +22,7 @@ public class FileReader {
         return data;
     }
 
-    public static List<String[]> readCSVallCoulumn(String fileName) throws IOException {
+    public static List<String[]> readCSVallColumn(String fileName) throws IOException {
 
         List<String[]> data = new ArrayList<>();
 

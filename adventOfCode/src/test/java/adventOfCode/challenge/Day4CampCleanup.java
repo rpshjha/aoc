@@ -11,7 +11,7 @@ public class Day4CampCleanup {
 
     public static void main(String[] args) throws IOException {
 
-        List<String[]> data = FileReader.readCSVallCoulumn(filename);
+        List<String[]> data = FileReader.readCSVallColumn(filename);
 
         int ans1 = partOne(data);
 
