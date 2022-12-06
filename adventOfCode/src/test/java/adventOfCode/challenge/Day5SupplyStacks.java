@@ -1,6 +1,6 @@
 package adventOfCode.challenge;
 
-import adventOfCode.utils.ReadCSV;
+import adventOfCode.utils.FileReader;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -12,7 +12,7 @@ public class Day5SupplyStacks {
 
     public static void main(String[] args) throws IOException {
 
-        List<String[]> data = ReadCSV.readAllCoulumn(filename);
+        List<String[]> data = FileReader.readCSVallCoulumn(filename);
 
         partOne(data);
 

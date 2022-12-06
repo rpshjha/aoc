@@ -1,6 +1,6 @@
 package adventOfCode.challenge;
 
-import adventOfCode.utils.ReadCSV;
+import adventOfCode.utils.FileReader;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -18,9 +18,9 @@ public class Day1ElfCarryingTheMostCalories {
 
         List<Integer> tempList = new ArrayList<>();
 
-        for (int index = 0; index < ReadCSV.read(filename).size(); index++) {
+        for (int index = 0; index < FileReader.readCSV(filename).size(); index++) {
 
-            String temp = ReadCSV.read(filename).get(index);
+            String temp = FileReader.readCSV(filename).get(index);
 
             if (!temp.isEmpty()) {
                 tempList.add(Integer.parseInt(temp));
@@ -29,7 +29,7 @@ public class Day1ElfCarryingTheMostCalories {
                 tempList = new ArrayList<>();
             }
 
-            if (index == ReadCSV.read(filename).size() - 1) {
+            if (index == FileReader.readCSV(filename).size() - 1) {
                 testData.add(tempList);
             }
 

@@ -1,11 +1,25 @@
 package adventOfCode.utils;
 
-import java.util.LinkedHashSet;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class StringUtils {
+
+    public static List<Character> checkIfDuplicates(String str) {
+
+        LinkedHashMap<Character, Integer> oMap = new LinkedHashMap<>();
+
+        for (char ch : str.toCharArray())
+            if (oMap.containsKey(ch))
+                oMap.put(ch, oMap.get(ch) + 1);
+            else
+                oMap.put(ch, 1);
+
+        return oMap.entrySet().stream()
+                .filter(entry -> entry.getValue() > 1)
+                .map(Map.Entry::getKey)
+                .collect(Collectors.toList());
+    }
 
     public static String removeDuplicates(String str) {
         LinkedHashSet<Character> set = new LinkedHashSet<>();

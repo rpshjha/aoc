@@ -1,6 +1,6 @@
 package adventOfCode.challenge;
 
-import adventOfCode.utils.ReadCSV;
+import adventOfCode.utils.FileReader;
 
 import java.io.IOException;
 import java.util.List;
@@ -11,7 +11,7 @@ public class Day4CampCleanup {
 
     public static void main(String[] args) throws IOException {
 
-        List<String[]> data = ReadCSV.readAllCoulumn(filename);
+        List<String[]> data = FileReader.readCSVallCoulumn(filename);
 
         int ans1 = partOne(data);
 

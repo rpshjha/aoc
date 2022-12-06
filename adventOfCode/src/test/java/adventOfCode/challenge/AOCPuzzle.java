@@ -55,11 +55,6 @@ public abstract class AOCPuzzle
 		lap(String.valueOf(answer));
 	}
 
-	public void lap(long answer)
-	{
-		lap(String.valueOf(answer));
-	}
-
 	public void lap(String answer)
 	{
 		long timeSpent = (System.nanoTime() - timerStart) / 1000;
@@ -75,22 +70,6 @@ public abstract class AOCPuzzle
 		if(timeSpent < 1000000)
 			return (timeSpent / 1000.0) + "ms";
 		return (timeSpent / 1000000.0) + "s";
-	}
-
-	public List<Integer> convertToInts(List<String> input)
-	{
-		List<Integer> ints = new ArrayList<>();
-		for(String s : input)
-			ints.add(Integer.parseInt(s));
-		return ints;
-	}
-
-	public List<Long> convertToLongs(List<String> input)
-	{
-		List<Long> ints = new ArrayList<>();
-		for(String s : input)
-			ints.add(Long.parseLong(s));
-		return ints;
 	}
 
 }

@@ -1,6 +1,6 @@
 package adventOfCode.challenge;
 
-import adventOfCode.utils.ReadCSV;
+import adventOfCode.utils.FileReader;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -22,7 +22,7 @@ public class Day2RockPaperScissor {
         map.put("Y", 2);//paper
         map.put("Z", 3);//scissors
 
-        List<String> data = ReadCSV.read(filename);
+        List<String> data = FileReader.readCSV(filename);
 
         System.out.println("size of data isx " + data.size());
 
@@ -37,10 +37,10 @@ public class Day2RockPaperScissor {
             int myShape = map.get(myChoice);
 
             if (opShape > myShape) {
-                myScore += 0 + myShape;
+                myScore += myShape;
             } else if (myShape > opShape) {
                 myScore += 6 + myShape;
-            } else if (myShape == opShape) {
+            } else {
                 myScore += 3 + myShape;
             }
 

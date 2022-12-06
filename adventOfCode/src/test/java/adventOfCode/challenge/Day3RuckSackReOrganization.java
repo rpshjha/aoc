@@ -1,9 +1,10 @@
 package adventOfCode.challenge;
 
-import adventOfCode.utils.ReadCSV;
+import adventOfCode.utils.FileReader;
 import adventOfCode.utils.StringUtils;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -14,7 +15,7 @@ public class Day3RuckSackReOrganization {
 
     public static void main(String[] args) throws IOException {
 
-        List<String> data = ReadCSV.read(filename);
+        List<String> data = FileReader.readCSV(filename);
 
         int totalPriority = 0;
 
@@ -60,7 +61,7 @@ public class Day3RuckSackReOrganization {
             totalPriority += priority;
         }
 
-        System.out.println("priority for " + temp + " is " + totalPriority);
+        System.out.println("priority for " + Arrays.toString(temp) + " is " + totalPriority);
         return totalPriority;
     }
 
