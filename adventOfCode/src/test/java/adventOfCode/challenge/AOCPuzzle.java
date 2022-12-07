@@ -55,6 +55,11 @@ public abstract class AOCPuzzle
 		lap(String.valueOf(answer));
 	}
 
+	public void lap(long answer)
+	{
+		lap(String.valueOf(answer));
+	}
+
 	public void lap(String answer)
 	{
 		long timeSpent = (System.nanoTime() - timerStart) / 1000;
